@@ -68,17 +68,8 @@ def train(args):
 			print("Early stopping")
 			break
 
-		# if eval_acc > max_acc :
-		# 	model_supervisor.save_model()
-		# 	max_acc=eval_acc
-			# val_summary = {'train_loss': train_loss, 'train_acc': train_acc, 'eval_loss': eval_loss,
-			# 'eval_label_acc': eval_label_acc, 'eval_data_acc': eval_data_acc, 'eval_acc': eval_acc}
-			# val_summary['global_step'] = model_supervisor.global_step
 		print('dev loss: %.4f dev acc: %.4f' % (eval_loss, eval_acc))
 
-
-		# if args.lr_decay_steps is not None and model_supervisor.global_step % args.lr_decay_steps == 0:
-		# 	model_supervisor.model.lr_decay(args.lr_decay_rate)
 
 def evaluate(args):
 	print('Evaluation')
