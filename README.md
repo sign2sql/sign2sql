@@ -1,4 +1,4 @@
-### Hi there 👋
+### Sign2SQL: Synthesizing SQL Queries from Signed Language
 
 <!--
 **sign2sql/sign2sql** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
