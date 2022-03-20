@@ -22,10 +22,10 @@ import torch
 from torch.autograd import Variable
 import nltk
 # Special vocabulary symbols
-_PAD = "_PAD_" #填充句子
-_EOS = "_EOS_" # 结尾
-_GO = "_GO_" # 放在句子的开头
-_UNK = "_UNK_" #替换词汇表里不存在的字符
+_PAD = "_PAD_" 
+_EOS = "_EOS_" 
+_GO = "_GO_" 
+_UNK = "_UNK_" 
 _START_VOCAB = [_PAD, _EOS, _GO, _UNK]
 
 PAD_ID = 0
@@ -47,7 +47,7 @@ def np_to_tensor(inp, output_type, cuda_flag):
     return inp_tensor
 
 
-class DataProcessor(object):  # 处理语料库以及特殊字符
+class DataProcessor(object):  
     def __init__(self, args):
         gloss_vocab={}
         with open(args.gloss_vocab) as f:
