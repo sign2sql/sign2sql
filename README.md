@@ -1,16 +1,31 @@
-### Sign2SQL: Synthesizing SQL Queries from Signed Language
+# Sign2SQL: Synthesizing SQL Queries from Signed Language
 
-<!--
-**sign2sql/sign2sql** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+We give the dataset of sign2sql which contains 9383 pairs of sign and sql. We also give the initial rule-based English-ASL(America Sign Language) corpus that we used in constructing the sign2sql dataset: ASLG-PC12.
 
-Here are some ideas to get you started:
+## Introduction to dataset
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+* **sign2sql.json** store the JSON format of (GLOSS,SQL) pairs.
+* **tables.json** contains the following information for each database.
+* **databases**  All table contents are contained in corresponding SQLite3 database files. Can be download from [here](https://drive.google.com/file/d/1FugT0ER4THd4rf5OGCPUAGQuNYjtUpAx/view?usp=sharing).
+* **gloss2text.json**  contains 87710 pairs of rule-based English-ASL.
+
+### details
+
+`sign2sql.json` contains the following fields:
+
+* `db_id`: solving the database id of this issue.
+* `gloss`: the ASL (America Sign Language) question.
+* `gloss_toks`: the ASL tokens.
+* `query`: the SQL query corresponding to the question.
+* `query_toks`: the SQL query tokens.
+
+Below is an example:
+```
+{"db_id": "department_management", 
+"gloss": "HOW DESC-MANY HEAD DEPARTMENT BE DESC-OLDER THAN 56 ?",
+"gloss_toks": ["HOW", "DESC-MANY", "HEAD", "DEPARTMENT",  "BE", "DESC-OLDER", "THAN", "56", "?"], 
+"query": "SELECT count(*) FROM head  WHERE age  >  56", 
+"query_toks": ["SELECT", "count", "(", "*", ")", "FROM",  "head", "WHERE", "age", ">", "56"], "query_toks_no_value": ["select", "count", "(", "*", ")", "from", "head", "where", "age", ">", "{value}"]},
+```
+## Baselines
+The code is runnable with Python 3, PyTorch 0.10.0. And we give the seq2seq baselines contains LSTM+LSTM and LSTM+LSTM+Attn.
