@@ -25,7 +25,30 @@ Below is an example:
 "gloss": "HOW DESC-MANY HEAD DEPARTMENT BE DESC-OLDER THAN 56 ?",
 "gloss_toks": ["HOW", "DESC-MANY", "HEAD", "DEPARTMENT",  "BE", "DESC-OLDER", "THAN", "56", "?"], 
 "query": "SELECT count(*) FROM head  WHERE age  >  56", 
-"query_toks": ["SELECT", "count", "(", "*", ")", "FROM",  "head", "WHERE", "age", ">", "56"], "query_toks_no_value": ["select", "count", "(", "*", ")", "from", "head", "where", "age", ">", "{value}"]},
+"query_toks": ["SELECT", "count", "(", "*", ")", "FROM",  "head", "WHERE", "age", ">", "56"], "query_toks_no_value": ["select", "count", "(", "*", ")", "from", "head", "where", "age", ">", "{value}"]
+},
 ```
 ## Baselines
-The code is runnable with Python 3, PyTorch 0.10.0. And we give the seq2seq baselines contains LSTM+LSTM and LSTM+LSTM+Attn.
+The code is runnable with Python 3.8, PyTorch 0.10.0. 
+And we give the seq2seq baselines contains LSTM+LSTM and LSTM+LSTM+Attn.
+
+#### 1.1 Data Preprocessing
+Please run `generate_vocab.py` to construct data vocabulary.
+#### 1.2 Run experiment
+For example: 
+1 training with LSTM+LSTM model
+```
+pyrhon run.py -eval False -attention_mechanism False -model_dir model
+```
+2 Testing 
+```
+pyrhon run.py -eval True -attention_mechanism False -load_model model
+```
+
+
+
+
+
+
+ 
+
